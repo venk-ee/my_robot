@@ -39,6 +39,16 @@ def generate_launch_description():
                                    '-entity', 'my_bot'],
                         output='screen')
 
+    # RViz with simulation time
+    rviz_config_file = os.path.join(get_package_share_directory(package_name), 'config', 'drive_bot.config.rviz')
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_file],
+        parameters=[{'use_sim_time': True}],
+        output='screen'
+    )
 
 
     # Launch them all!
@@ -46,4 +56,5 @@ def generate_launch_description():
         rsp,
         gazebo,
         spawn_entity,
+        rviz,
     ])
