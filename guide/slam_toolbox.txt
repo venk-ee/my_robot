@@ -8,4 +8,5 @@ c/my_robot/nav2map/my_map_save.yaml -p use_sim_time:=true
 ~/dev_ws$ ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
 
 
+
 sudo apt install ros-humble-twist-mux #this is for the nav (remap to /diff_count/cmd_vel_unstamped) from(/cmd_vel_out)
