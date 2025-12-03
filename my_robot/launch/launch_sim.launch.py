@@ -51,10 +51,18 @@ def generate_launch_description():
     )
 
 
+    # Twist Mux
+    twist_mux = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','twist_mux.launch.py'
+                )]), launch_arguments={'use_sim_time': 'true'}.items()
+    )
+
     # Launch them all!
     return LaunchDescription([
         rsp,
         gazebo,
         spawn_entity,
         rviz,
+        twist_mux,
     ])
